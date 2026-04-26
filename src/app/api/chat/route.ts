@@ -2,7 +2,8 @@ import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: "https://text.pollinations.ai/openai",
+  apiKey: "not-needed",
 });
 
 export async function POST(req: Request) {
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
     };
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai",
       messages: [systemMessage, ...messages],
       temperature: 0.7,
       max_tokens: 500,
