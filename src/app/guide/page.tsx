@@ -8,35 +8,35 @@ import { ClipboardEdit, Mic, Vote, CheckSquare, Trophy, ArrowRight, ArrowLeft } 
 const steps = [
   {
     id: 1,
-    title: "Registration",
+    title: "Registration 📝",
     description: "The first step is ensuring you are registered to vote in your state before the deadline.",
     details: "Each state has its own voter registration deadlines. You can usually register online, by mail, or in person at designated locations like the DMV.",
     icon: <ClipboardEdit className="w-12 h-12 text-blue-500" />,
   },
   {
     id: 2,
-    title: "Campaigning",
+    title: "Campaigning 🗣️",
     description: "Candidates run their campaigns to outline their platforms and gain public support.",
     details: "During this phase, candidates participate in debates, hold rallies, and run advertisements. It's the best time for voters to research and understand where each candidate stands on key issues.",
     icon: <Mic className="w-12 h-12 text-purple-500" />,
   },
   {
     id: 3,
-    title: "Voting",
+    title: "Voting 🗳️",
     description: "Voters cast their ballots either early, by mail, or on Election Day.",
     details: "Election Day is traditionally the first Tuesday following the first Monday in November. Make sure to bring necessary ID if your state requires it, and know your polling location.",
     icon: <Vote className="w-12 h-12 text-red-500" />,
   },
   {
     id: 4,
-    title: "Counting",
+    title: "Counting 🧮",
     description: "Polls close and election officials begin counting the ballots securely.",
     details: "Ballot counting can take days depending on the state's rules, especially with the influx of mail-in ballots. Election security and integrity are closely monitored during this process.",
     icon: <CheckSquare className="w-12 h-12 text-yellow-500" />,
   },
   {
     id: 5,
-    title: "Results",
+    title: "Results 🏆",
     description: "Results are certified, and the winners prepare to take office.",
     details: "Once all valid votes are counted and certified by state officials, the results are final. For the Presidency, the Electoral College formally casts their votes in December.",
     icon: <Trophy className="w-12 h-12 text-green-500" />,
@@ -84,7 +84,7 @@ export default function GuidePage() {
       </div>
 
       {/* Step Card */}
-      <div className="w-full relative min-h-[400px]">
+      <div className="w-full relative flex justify-center items-center min-h-[350px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
@@ -92,9 +92,9 @@ export default function GuidePage() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
-            className="w-full absolute"
+            className="w-full max-w-3xl"
           >
-            <GlassCard className="flex flex-col items-center text-center p-8 md:p-12">
+            <GlassCard className="flex flex-col items-center text-center p-8 md:p-12 w-full">
               <div className="p-6 bg-white/50 dark:bg-black/30 rounded-full mb-6">
                 {steps[currentStep].icon}
               </div>
@@ -107,7 +107,7 @@ export default function GuidePage() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex gap-4 mt-8 pt-[450px] md:pt-[350px]">
+      <div className="flex gap-4 mt-12 mb-8">
         <button
           onClick={prevStep}
           disabled={currentStep === 0}

@@ -17,15 +17,11 @@ export default function Navbar() {
     }
   }, []);
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      document.documentElement.classList.add("dark");
+  useEffect(() => {
+    if (document.documentElement.classList.contains("dark")) {
       setTheme("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      setTheme("light");
     }
-  };
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -40,8 +36,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary">
-              Election Guide
+            <Link 
+              href="/" 
+              className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all hover:drop-shadow-[0_0_25px_rgba(168,85,247,1)]"
+            >
+              What is Election?
             </Link>
           </div>
 
@@ -60,22 +59,9 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full glass hover:bg-white/20 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
           </div>
 
           <div className="flex items-center md:hidden space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full glass hover:bg-white/20 transition-colors"
-            >
-              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-primary p-2"

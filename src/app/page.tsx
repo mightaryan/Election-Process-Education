@@ -2,28 +2,30 @@ import Link from "next/link";
 import { GlassCard } from "@/components/GlassCard";
 import { ArrowRight, BookOpen, Clock, ShieldCheck, MessageSquare } from "lucide-react";
 
+import Image from "next/image";
+
 export default function Home() {
   const features = [
     {
-      title: "Interactive Guide",
+      title: "Interactive Guide 📖",
       description: "Step-by-step explanation of the election process from registration to results.",
       icon: <BookOpen className="w-8 h-8 text-primary" />,
       href: "/guide",
     },
     {
-      title: "AI Assistant",
+      title: "AI Assistant 🤖",
       description: "Ask questions and get beginner-friendly, accurate answers about voting.",
       icon: <MessageSquare className="w-8 h-8 text-primary" />,
       href: "/chat",
     },
     {
-      title: "Election Timeline",
+      title: "Election Timeline ⏳",
       description: "Visual timeline of key milestones in the election process.",
       icon: <Clock className="w-8 h-8 text-primary" />,
       href: "/timeline",
     },
     {
-      title: "Eligibility Checker",
+      title: "Eligibility Checker ✅",
       description: "Quickly check your eligibility to vote with our simple tool.",
       icon: <ShieldCheck className="w-8 h-8 text-primary" />,
       href: "/eligibility",
@@ -32,19 +34,35 @@ export default function Home() {
 
   return (
     <div className="py-12 md:py-20 flex flex-col items-center justify-center space-y-12">
-      <div className="text-center space-y-6 max-w-3xl">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
-          Democracy, Demystified.
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          Your comprehensive, easy-to-understand guide to the election process. Learn, ask questions, and get ready to vote.
-        </p>
-        <div className="pt-4 flex justify-center gap-4">
-          <Link href="/guide">
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors flex items-center gap-2">
-              Get Started <ArrowRight className="w-5 h-5" />
-            </button>
-          </Link>
+
+      {/* Hero Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12 w-full max-w-6xl">
+        <div className="text-center md:text-left space-y-6 max-w-2xl flex-1">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-primary">
+            Democracy, Demystified. 🗳️
+          </h1>
+          <p className="text-xl text-muted-foreground">
+            Your comprehensive, easy-to-understand guide to the election process. Learn, ask questions, and get ready to vote. 🇺🇸
+          </p>
+          <div className="pt-4 flex justify-center md:justify-start gap-4">
+            <Link href="/guide">
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors flex items-center shadow-[0_0_20px_rgba(139,92,246,0.5)] gap-2">
+                Get Started 🚀 <ArrowRight className="w-5 h-5" />
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Generated Image */}
+        <div className="flex-1 w-full max-w-md relative flex justify-center">
+          <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+          <Image
+            src="/hero.png"
+            alt="Glowing frosted glass ballot box"
+            width={400}
+            height={400}
+            className="relative z-10 animate-in fade-in zoom-in duration-1000 drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]"
+          />
         </div>
       </div>
 
