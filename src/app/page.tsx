@@ -54,15 +54,20 @@ export default function Home() {
         </div>
 
         {/* Generated Image */}
-        <div className="flex-1 w-full max-w-md relative flex justify-center">
-          <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-          <Image
-            src="/hero.png"
-            alt="Glowing frosted glass ballot box"
-            width={400}
-            height={400}
-            className="relative z-10 animate-in fade-in zoom-in duration-1000 drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]"
-          />
+        <div className="flex-1 w-full max-w-md relative flex justify-center group perspective-[1000px]">
+          {/* Animated Glow Behind Image */}
+          <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full transition-all duration-500 group-hover:bg-primary/40 group-hover:blur-[60px]" />
+          
+          {/* 3D Hover Image */}
+          <div className="relative z-10 transition-transform duration-500 transform-style-3d group-hover:rotate-y-[-10deg] group-hover:rotate-x-[10deg] group-hover:scale-110">
+            <Image
+              src="/hero.png"
+              alt="Glowing frosted glass ballot box"
+              width={400}
+              height={400}
+              className="animate-in fade-in zoom-in duration-1000 drop-shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500 group-hover:drop-shadow-[0_0_60px_rgba(232,121,249,0.8)]"
+            />
+          </div>
         </div>
       </div>
 

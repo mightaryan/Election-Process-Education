@@ -79,5 +79,20 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.perspective-[1000px]': {
+          perspective: '1000px',
+        },
+        '.transform-style-3d': {
+          'transform-style': 'preserve-3d',
+        },
+        '.rotate-y-\\[-10deg\\]': {
+          transform: 'rotateY(-10deg) rotateX(10deg)',
+        },
+      });
+    },
+  ],
 }
